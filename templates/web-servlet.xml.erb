@@ -1,0 +1,18 @@
+	<servlet>
+		<servlet-name><%= @servlet_name %></servlet-name>
+		<servlet-class><%= @clazz %></servlet-class>
+<% @init_params.each do |hash| -%><% hash.keys.each do |key| -%>
+		<init-param>
+			<param-name><%= key %></param-name>
+			<param-value><%= hash[key] %></param-value>
+		</init-param>
+<% end -%><% end -%>
+		<load-on-startup><%= @load_on_startup %></load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name><%= @servlet_name %></servlet-name>
+<% @mappings.each do |val| -%>
+		<url-pattern><%= val %></url-pattern>
+<% end -%>
+    </servlet-mapping>

@@ -1,0 +1,30 @@
+{
+  "name": "proteon-tomcat",
+  "version": "0.1.15",
+  "summary": "",
+  "author": "Sander Bilo",
+  "description": "",
+  "dependencies": [
+    {
+      "name": "ripienaar/concat",
+      "version_requirement": "\u003e\u003d0.2.0"
+    },
+    {
+      "name": "klangrud/profile_d",
+      "version_requirement": "\u003e\u003d0.0.1"
+    },
+    {
+      "name": "proteon/maven",
+      "version_requirement": "\u003e\u003d1.0.1"
+    },
+    {
+      "name": "proteon/java",
+      "version_requirement": "\u003e\u003d0.1.6"
+    }
+  ],
+  "types": [],
+  "checksums": {},
+  "source": "git://github.com/Proteon/puppet-tomcat.git",
+  "project_page": "https://github.com/Proteon/puppet-tomcat",
+  "license": "Apache"
+}

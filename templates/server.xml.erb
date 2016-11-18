@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE server-xml [
+	<!ENTITY connectors SYSTEM "connectors.xml">
+	<!ENTITY engine-cluster SYSTEM "engine-cluster.xml">
+	<!ENTITY engine-realms SYSTEM "engine-realms.xml">
+	<!ENTITY engine-valves SYSTEM "engine-valves.xml">
+	<!ENTITY server-jndi-environmentvars SYSTEM "server-jndi-environmentvars.xml">
+	<!ENTITY server-jndi-resourcelinks SYSTEM "server-jndi-resourcelinks.xml">
+	<!ENTITY server-jndi-resources SYSTEM "server-jndi-resources.xml">
+	<!ENTITY server-listeners SYSTEM "server-listeners.xml">
+	<!ENTITY host-cluster SYSTEM "host-cluster.xml">
+	<!ENTITY host-valves SYSTEM "host-valves.xml">
+]>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<Server port="<%= @shutdown_port %>" shutdown="SHUTDOWN">
+
+	&server-listeners;
+
+	<GlobalNamingResources>
+    	
+    	&server-jndi-environmentvars;
+		
+		&server-jndi-resourcelinks;
+		
+		&server-jndi-resources;
+	
+	</GlobalNamingResources>
+
+	<Service name="Catalina">
+	
+		&connectors;
+
+		<Engine name="Catalina" defaultHost="localhost" <% if @jvmroute %> jvmRoute="<%= @jvmroute %>" <% end %> >
+
+      		&engine-cluster;
+
+      		&engine-valves;
+
+      		&engine-realms;
+
+			<Host name="localhost" appBase="webapps" unpackWARs="<%= @unpack_wars %>" autoDeploy="<%= @auto_deploy %>" deployOnStartup="<%= @deploy_on_startup %>">
+
+				&host-cluster;
+
+				&host-valves;
+
+			</Host>
+		</Engine>
+	</Service>
+</Server>

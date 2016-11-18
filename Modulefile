@@ -1,0 +1,13 @@
+name 'proteon-tomcat'
+version '0.1.15'
+
+author 'Sander Bilo'
+license 'Apache 2.0'
+project_page 'https://github.com/Proteon/puppet-tomcat'
+source 'git://github.com/Proteon/puppet-tomcat.git'
+summary ''
+description ''
+dependency 'proteon/maven', '>=1.0.1'
+dependency 'proteon/java', '>=0.1.6'
+dependency 'proteon/profile_d', '>=0.1.1'
+dependency 'puppetlabs/concat', '>=1.0.0'

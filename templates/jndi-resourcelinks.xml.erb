@@ -1,0 +1,7 @@
+<ResourceLink name="<%= @resourcelink_name %>" <% if @resourcelink_factory -%>factory="<%= @resourelink_factory %>"<% end -%> 
+<% @attributes.each do |hash| -%>
+  <% hash.keys.each do |key| -%>
+  	<%= key %>="<%= hash[key] %>"
+  <% end -%>
+  <% end -%>
+/>
